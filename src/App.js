@@ -61,7 +61,7 @@ function App() {
             <Form.Check
               type="switch"
               id="custom-switch"
-              label="Dark mode"
+              label={mode === "dark" ? "Dark mode" : "Light mode"}
               onClick={handleToggle}
               style={labelStyle}
             />
