@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, Form } from "react-bootstrap";
 import Search from "./components/search/search";
 import CurrentWeather from "./components/current-weather/current-weather";
@@ -10,6 +10,16 @@ import DateTimeComponent from "./components/date";
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
+  const [mode, setMode] = useState("dark");
+
+  useEffect(() => {
+    const bodyElement = document.querySelector("body");
+    if (mode === "dark") {
+      bodyElement.classList.add("dark-mode");
+    } else {
+      bodyElement.classList.remove("dark-mode");
+    }
+  }, [mode]);
 
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(" ");
@@ -32,12 +42,8 @@ function App() {
       .catch(console.log);
   };
 
-  const [mode, setMode] = useState("dark");
-
   const handleToggle = () => {
-    const bodyElement = document.querySelector("body");
-    bodyElement.classList.toggle("dark-mode");
-    setMode(bodyElement.classList.contains("dark-mode") ? "dark" : "light");
+    setMode((prevMode) => (prevMode === "dark" ? "light" : "dark"));
   };
 
   const labelStyle = {
@@ -52,7 +58,7 @@ function App() {
         {forecast && <Forecast data={forecast} mode={mode} />}
         <div>
           <Form>
-            <Form.Check 
+            <Form.Check
               type="switch"
               id="custom-switch"
               label="Dark mode"
