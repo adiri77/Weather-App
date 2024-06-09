@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: -"roboto",Arial;
+  /* -webkit-font-smoothing: antialiased; */
+  /* -moz-osx-font-smoothing: grayscale; */
+ 
+  background-image: url(../public/white-cloud-blue-sky.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+body.dark-mode {
+  
+  background-image: url("../public//night.avif");
+  background-color: #333;
+  
+}
+
+.dark-mode .title {
+  
+  color: aliceblue;
+}
+
+.dark-mode .daily-item {
+  color: aliceblue;
+}

@@ -1,0 +1,11 @@
+.container{
+  max-width: 1080px;
+  margin:20px auto;
+}
+.dark-mode-label .form-check-label {
+  color: white;
+}
+
+.light-mode-label .form-check-label {
+  color: black;
+}
